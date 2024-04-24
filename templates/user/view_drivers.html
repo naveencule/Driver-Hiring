@@ -1,0 +1,57 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+	<!-- start banner Area -->
+			<section class="banner-area relative about-banner" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								View Drivers
+							</h1>
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Contact Us</a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+    <!-- End banner Area -->	
+
+
+    <section class="ftco-section">
+        <div class="container">
+          
+          <div class="row d-flex">
+            {% for i in app_driver %}
+            <div class="col-md-4 d-flex ftco-animate">
+              <div class="blog-entry justify-content-end">
+                <a href="#" class="block-20"> <img src="{{i.image.url}}" alt="Girl in a jacket" style="width:300; height:300px;" ></a>
+                </a>
+                <div class="text pt-4">
+                  <h3 class="heading mt-2">{{i.user.first_name}}</h3>
+                  <div>Email: {{i.user.email}}</div>
+                    <div>Mobile: {{i.mobile}}</div>
+                    <div>Address: {{i.address}}</div>
+                    <div>Vehicle: {{i.veh_type}}</div>
+                  <p><a href="book_trip?id={{i.id}}" class="btn btn-primary">BOOK</a>
+                  {% comment %} <a href="delete_staff?id={{i.id}}" class="btn btn-danger">delete</a></p> {% endcomment %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </section>	
+
+{% endblock %}

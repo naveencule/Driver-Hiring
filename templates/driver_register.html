@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<br><br><br>
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>	
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-between">
+						<div class="banner-content col-lg-6 col-md-6 ">
+							<h6 class="text-white ">Need a ride? just call</h6>
+							<h1 class="text-uppercase">
+
+							</h1>
+							<p class="pt-10 pb-10 text-white">
+								Whether you enjoy city breaks or extended holidays in the sun, you can always improve your travel experiences by staying in a small.
+							</p>
+							<a href="#" class="primary-btn text-uppercase">Call for taxi</a>
+						</div>
+						<div class="col-lg-4  col-md-6 header-right">
+							<h4 class="pb-30">Driver Registeration!</h4>
+							<form class="form" method="post" action="" enctype="multipart/form-data">
+								{% csrf_token %}
+							    <div class="from-group">
+                                    <input class="form-control txt-field" type="text" name="first_name" placeholder="Your Name"  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32) ">
+                                    <input class="form-control txt-field" type="text" name="address" placeholder="Address"  required>
+                                    <input class="form-control txt-field" type="text" name="pincode" placeholder="Pincode"  required>
+                                    <input class="form-control txt-field" type="text" name="experience" placeholder="Your Experience"  required>
+																		<label>Upload License</label>
+
+                                    <input class="form-control txt-field" type="file" name="license_no" placeholder="license_no"  required>
+									<label>Driver Image</label>
+                                    <input class="form-control txt-field" type="file" name="image" placeholder="image" >
+                                    <input class="form-control txt-field" type="text" name="username" placeholder="Username" >
+							    	<input class="form-control txt-field" type="text" name="mobile" placeholder="Mobile" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" title="Enter 10 digit number" required>
+							    	<input class="form-control txt-field" type="email" name="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" required>
+							    	<input class="form-control txt-field" type="password" name="password" placeholder="Password" pattern=".{8,}" title="Eight or more characters" required>
+                                    <input class="form-control txt-field" type="password" name="con_password" placeholder="Confirm Password" pattern=".{8,}" title="Eight or more characters" required>
+						
+										<div class="default-select" id="default-select">
+										 <select name="car_type">
+											 <option value="" disabled selected hidden>Car Type</option>
+											 <option value="Sedan">Sedan</option>
+											 <option value="Suv">Suv</option>
+											 <option value="Mini Suv">Mini Suv</option>
+											 <option value="luxury Suv">luxury Suv</option>
+											 <option value="luxury sedan">luxury sedan</option>
+										 </select>
+									 </div>
+							    </div>		<br>						
+							    {% comment %} <div class="form-group">
+							       	<div class="default-select" id="default-select">
+										<select>
+											<option value="" disabled selected hidden>From Destination</option>
+											<option value="1">Destination One</option>
+											<option value="2">Destination Two</option>
+											<option value="3">Destination Three</option>
+										</select>
+									</div>
+							    </div> {% endcomment %}
+							    {% comment %} <div class="form-group">
+							       	<div class="default-select" id="default-select2">
+										<select>
+											<option value="" disabled selected hidden>To Destination</option>
+											<option value="1">Destination One</option>
+											<option value="2">Destination Two</option>
+											<option value="3">Destination Three</option>
+										</select>
+									</div>
+							    </div>	 {% endcomment %}
+							    {% comment %} <div class="form-group">
+									<div class="input-group dates-wrap">                                              
+										<input id="datepicker2" class="dates form-control"  placeholder="Date & time" type="text">                        
+										<div class="input-group-prepend">
+											<span  class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
+										</div>											
+									</div>
+							    </div>							    
+							    <div class="form-group"> {% endcomment %}
+
+							            <button type="submit" class="btn btn-default btn-lg btn-block text-center text-uppercase">Register</button>
+
+							    </div>
+							</form>
+						</div>											
+					</div>
+				</div>					
+			</section>
+			<!-- End banner Area -->	
+            {% endblock %}
